@@ -38,8 +38,13 @@ public class CustomerController {
 	public String login(@RequestBody String[]a) {
 		String unameString=a[0];
 		String passwd=a[1];
-		 customerService.login(unameString,passwd);
-		 return "User Found....";
+		Customer obj = customerService.login(unameString,passwd);
+		if(obj!=null) {
+			 return "User Found....";
+		}else {
+			 return "User not Found....";
+		}
+		
 	}
 
 }
